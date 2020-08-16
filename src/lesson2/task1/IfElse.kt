@@ -63,7 +63,11 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
  * Мой возраст. Для заданного 0 < n < 200, рассматриваемого как возраст человека,
  * вернуть строку вида: «21 год», «32 года», «12 лет».
  */
-fun ageDescription(age: Int): String = TODO()
+fun ageDescription(age: Int): String = when (age) {
+        1, 21 , 31, 41, 51, 61, 71, 81, 91, 101, 121, 131, 141, 151, 161, 171, 181, 191 -> "$age год"
+        2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54, 62, 63, 64, 72, 73, 74, 82, 83, 84, 92, 93, 94, 102, 103, 104, 122, 123, 124, 132, 133, 134, 142, 143, 144, 152, 153, 154, 162, 163, 164, 172, 173, 174, 182, 183, 184, 192, 193, 194 -> "$age года"
+        else -> "$age лет"
+    }
 
 /**
  * Простая
@@ -76,7 +80,22 @@ fun timeForHalfWay(
     t1: Double, v1: Double,
     t2: Double, v2: Double,
     t3: Double, v3: Double
-): Double = TODO()
+): Double {
+    var timeForHalfWay = 0.0
+    var firstPartOfWay = t1 * v1
+    var secondPartOfWay = t2 * v2
+    var thirdPartOfWay = t3 * v3
+    var halfOfDistance = (firstPartOfWay + secondPartOfWay + thirdPartOfWay) / 2
+    if (halfOfDistance <= firstPartOfWay) {
+        timeForHalfWay = halfOfDistance / v1
+    } else if (halfOfDistance > firstPartOfWay && halfOfDistance <= firstPartOfWay + secondPartOfWay) {
+        timeForHalfWay = firstPartOfWay / v1 + (halfOfDistance - firstPartOfWay) / v2
+    } else if (halfOfDistance >= firstPartOfWay + secondPartOfWay && halfOfDistance <= firstPartOfWay + secondPartOfWay + thirdPartOfWay)  {
+        timeForHalfWay = firstPartOfWay / v1 + secondPartOfWay / v2 + (halfOfDistance - firstPartOfWay - secondPartOfWay) / v3
+        return timeForHalfWay
+    }
+    return timeForHalfWay
+}
 
 /**
  * Простая

@@ -174,8 +174,8 @@ fun accountInThreeYears(initial: Int, percent: Int): Double {
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int {
-    var digit = number
-    var numRevert = digit downTo 1
-    return numRevert
-}
+fun numberRevert(number: Int): Int = TODO()//{
+   // var digit = number
+   // var numRevert = digit downTo 1
+   // return numRevert
+//}
